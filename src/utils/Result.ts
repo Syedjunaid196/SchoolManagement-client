@@ -3,9 +3,7 @@ export interface Result<T>{
     isSuccess: boolean;
     message: string;
     statusCode: number;
-    problemDetails: ProblemDetails
-    
-
+    problemDetails: ProblemDetails  
 }
 
 export interface ProblemDetails{

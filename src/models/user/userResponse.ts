@@ -1,6 +1,7 @@
 import { Gender, UserRole } from "../Enums/appEnums";
 
-export interface UserRequest {
+export interface UserResponse  {
+    id: string;
     firstName: string;
     lastName: string;
     email: string;

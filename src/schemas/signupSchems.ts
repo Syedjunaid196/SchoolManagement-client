@@ -1,6 +1,7 @@
 import z, { email } from "zod";
+import { Gender, UserRole } from "../models/Enums/appEnums";
 
-export const signUPSchema = z.object({
+export const signupSchema = z.object({
     firstName: z
         .string()
         .min(1, "First name is required"),
@@ -15,7 +16,9 @@ export const signUPSchema = z.object({
 
     password: z
         .string()
-        .min(6, "Password must be at least 6 characters")
+        .min(6, "Password must be at least 6 characters"),
 
+    gender: z.nativeEnum(Gender),
+    role: z.nativeEnum(UserRole),
 
 })
