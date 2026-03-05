@@ -10,7 +10,8 @@ export default function Navbar() {
   const handleLogout = async () => {
     const result = await logoutService()
     if (result.isSuccess) {
-      router.replace("/");
+      router.push("/");
+      router.refresh();
       toast.success(result.value)
     }
     else {
