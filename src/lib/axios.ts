@@ -9,11 +9,14 @@ export const api = axios.create({
     withCredentials: true
 
 });
-api.interceptors.request.use((config) => {
-    const token = localStorage.getItem("token-school-management");
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+api.interceptors.request.use(async (config) => {
+  // Only run on the server
+  if (typeof window === "undefined") {
+    const { headers } = await import("next/headers");
+    const cookieHeader = (await headers()).get("cookie");
+    if (cookieHeader) {
+      config.headers.Cookie = cookieHeader;
     }
-    return config;
+  }
+  return config;
 });
-

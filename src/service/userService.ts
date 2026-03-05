@@ -15,3 +15,8 @@ export const loginService = async(model:LoginRequest):Promise<Result<LoginRespon
     const response = await api.post("users/login", model);
     return response.data;
 }
+
+export const logoutService = async():Promise<Result<String>>=>{
+    const response = await api.post("users/logout");
+    return response.data;
+}

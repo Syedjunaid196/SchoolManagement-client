@@ -8,10 +8,13 @@ import { AddStudentSchema } from "@/schemas/addStudentSchema";
 import { AddStudentService } from "@/service/studentService";
 
 import { z } from "zod";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type AddStudentFormValues = z.infer<typeof AddStudentSchema>;
 
 const AddStudent = () => {
+  const router= useRouter();
   const {
     register,
     handleSubmit,
@@ -24,9 +27,10 @@ const AddStudent = () => {
     const response = await AddStudentService(model);
 
     if (response.isSuccess) {
-      alert(response.message);
+      toast.success(response.message);
+      router.back()
     } else {
-      alert(response.problemDetails?.title ?? "Something went wrong");
+     toast.error(response.problemDetails.title)
     }
   };
 
