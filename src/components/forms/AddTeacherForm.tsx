@@ -20,7 +20,7 @@ const AddTeacherForm = () => {
         const response = await AddTeacherService(model);
         if (response.isSuccess) {
             toast.success(response.message);
-            router.back();
+            router.push("/admin/teachers");
         }
         else {
             toast.error(response.problemDetails.title);

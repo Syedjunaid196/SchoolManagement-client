@@ -28,7 +28,7 @@ const AddStudent = () => {
 
     if (response.isSuccess) {
       toast.success(response.message);
-      router.back()
+      router.push("/admin/students")
     } else {
       toast.error(response.problemDetails.title)
     }
