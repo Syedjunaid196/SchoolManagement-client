@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation'
 
 const AddTeacherForm = () => {
     const router = useRouter();
-    const { register, handleSubmit, formState: { errors } } = useForm<TeacherRequest>({
+    const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<TeacherRequest>({
         resolver: zodResolver(AddTeacherSchema)
     })
 
@@ -83,8 +83,11 @@ const AddTeacherForm = () => {
                 />
 
                 <button
-                type='submit'> 
-                    submit
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-black text-white p-2 rounded"
+                >
+                    {isSubmitting ? "Creating..." : "Create Teacher"}
                 </button>
             </form>
         </div>

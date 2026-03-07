@@ -27,7 +27,8 @@ export const AddTeacherSchema = z.object({
 
     employeeCode: z
         .string()
-        .length(20),
+        .min(5, "Employee code must be at least 5 characters")
+        .max(20, "Employee code must be at most 20 characters"),
 
     dateOfJoining: z.date()
 })
