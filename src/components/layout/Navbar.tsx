@@ -1,6 +1,6 @@
 "use client";
 
-import { logoutService } from "@/service/userService";
+import { logoutService } from "@/service/authService";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 

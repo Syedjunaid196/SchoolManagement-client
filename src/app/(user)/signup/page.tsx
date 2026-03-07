@@ -1,7 +1,7 @@
 "use client"
-import { UserRequest } from '@/models/user/userRequest';
+import { UserRequest } from '@/models/auth/userRequest';
 import { signupSchema } from '@/schemas/signupSchems';
-import { userService } from '@/service/userService';
+import { userService } from '@/service/authService';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
