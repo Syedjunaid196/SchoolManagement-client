@@ -1,11 +1,10 @@
-import React from 'react'
+import AddTeacherForm from "@/components/forms/AddTeacherForm";
 
-const AddTeacher = () => {
-  return (
+export default function AddTeacherPage(){
+  return(
     <div>
-      <h1>teacher creation page </h1>
+      <h1>create teacher</h1>
+      <AddTeacherForm />
     </div>
   )
 }
-
-export default AddTeacher

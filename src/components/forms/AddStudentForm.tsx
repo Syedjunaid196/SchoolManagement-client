@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 type AddStudentFormValues = z.infer<typeof AddStudentSchema>;
 
 const AddStudent = () => {
-  const router= useRouter();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -30,7 +30,7 @@ const AddStudent = () => {
       toast.success(response.message);
       router.back()
     } else {
-     toast.error(response.problemDetails.title)
+      toast.error(response.problemDetails.title)
     }
   };
 
@@ -65,7 +65,7 @@ const AddStudent = () => {
         />
 
         {/* Gender Dropdown */}
-       <div className="space-y-1">
+        <div className="space-y-1">
           <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
             Gender
           </label>
@@ -83,11 +83,11 @@ const AddStudent = () => {
         </div>
 
         {/* Date of Birth */}
-      <Input
-  type="date"
-  {...register("dateOfBirth", { valueAsDate: true })}
-  error={errors.dateOfBirth?.message}
-/>
+        <Input
+          type="date"
+          {...register("dateOfBirth", { valueAsDate: true })}
+          error={errors.dateOfBirth?.message}
+        />
 
         <Input
           {...register("rollNumber")}
