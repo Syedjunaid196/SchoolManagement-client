@@ -4,7 +4,6 @@ import React from 'react'
 const Teachers = () => {
   return (
     <div>
-      <h1>this is teachers list</h1>
        <Link
         href="/admin/teachers/add-teacher"
         className="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block"
