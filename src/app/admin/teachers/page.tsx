@@ -1,3 +1,4 @@
+import TeacherTable from '@/components/tables/TeacherTable'
 import Link from 'next/link'
 import React from 'react'
 
@@ -10,6 +11,10 @@ const Teachers = () => {
       >
         Create teacher
       </Link>
+
+       <h1 className="text-2xl font-bold mb-6">Teachers</h1>
+      
+            <TeacherTable/>
     </div>
   )
 }
