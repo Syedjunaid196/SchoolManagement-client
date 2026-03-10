@@ -2,7 +2,8 @@
 import { TeacherListResponse } from '@/models/teachers/teacherListResponse';
 import { GetTeacherList } from '@/service/teacherService';
 import React, { useEffect, useState } from 'react'
-import { date } from 'zod';
+import { toast } from 'sonner';
+
 
 const TeacherTable = () => {
 
@@ -11,11 +12,18 @@ const TeacherTable = () => {
 
     const result = async () => {
         const response = await GetTeacherList();
-        SetTeachers(response.value)
+        if (response.isSuccess) {
+            SetTeachers(response.value);
+            toast.success(response.message);
+        }
+        else{
+            toast.error(response.problemDetails.title);
+        }
     }
     useEffect(() => {
         result();
-    }, [])
+    }, []);
+
 
 
     return (
@@ -45,20 +53,20 @@ const TeacherTable = () => {
                                     className='border-t hover:bg-gray-50'>
                                     <td className="p-3">{teacher.firstName}</td>
                                     <td className="p-3">{teacher.lastName}</td>
-                                    <td className="p-3">{teacher.Gender}</td>
+                                    <td className="p-3">{teacher.gender}</td>
                                     <td className="p-3">{teacher.email}</td>
                                     <td className="p-3">{teacher.employeeCode}</td>
                                     <td className="p-3">{new Date(teacher.joiningDate).toLocaleDateString()}</td>
                                     {/* action buttons */}
-                                   <td className="p-3 flex gap-2">
-                                    <button className="text-blue-600 hover:underline">
-                                        Edit
-                                    </button>
+                                    <td className="p-3 flex gap-2">
+                                        <button className="text-blue-600 hover:underline">
+                                            Edit
+                                        </button>
 
-                                    <button className="text-red-600 hover:underline">
-                                        Delete
-                                    </button>
-                                </td>
+                                        <button className="text-red-600 hover:underline">
+                                            Delete
+                                        </button>
+                                    </td>
                                 </tr>
                             ))
                         )}

@@ -1,11 +1,11 @@
 import { Gender } from "../Enums/appEnums";
 
-export interface TeacherListResponse{
+export interface ParentListResponse{
     id: string;
     firstName: string;
     lastName: string;
     gender: Gender;
     email: string;
-    employeeCode: string;
-    joiningDate: string;
+    occupation: string;
+    address: string;
 }

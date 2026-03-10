@@ -4,9 +4,9 @@ export interface StudentListResponse{
     id: string;
     firstName:string;
     lastName: string;
-    Gender: Gender;
+    gender: Gender;
     email: string;
     rollNumber: string;
     dateOfBirth: Date;
-    ParentName: string;
+    parentName: string;
 }

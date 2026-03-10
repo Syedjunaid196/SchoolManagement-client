@@ -42,12 +42,12 @@ export default function StudentTable({ students }: StudentTableProps) {
                                 <td className="p-3">{student.firstName}</td>
                                 <td className="p-3">{student.lastName}</td>
                                 <td className="p-3">{student.email}</td>
-                                <td className="p-3">{student.Gender}</td>
+                                <td className="p-3">{student.gender}</td>
                                 <td className="p-3">{student.rollNumber}</td>
                                 <td className="p-3">
                                     {new Date(student.dateOfBirth).toLocaleDateString()}
                                 </td>
-                                <td className="p-3">{student.ParentName?? 'null'}</td>
+                                <td className="p-3">{student.parentName?? 'null'}</td>
 
                                 {/* Actions */}
                                 <td className="p-3 flex gap-2">
