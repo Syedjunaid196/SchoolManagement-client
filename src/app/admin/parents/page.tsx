@@ -5,7 +5,7 @@ const Parents = () => {
   return (
     <div>
     <Link
-        href="/admin/teachers/add-parent"
+        href="/admin/parents/add-parent"
         className="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block"
       >
         Create Parent
