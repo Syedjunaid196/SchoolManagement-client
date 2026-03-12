@@ -38,9 +38,11 @@ const ParentTable = () => {
                 </thead>
                 <tbody className='text-sm text-gray-700'>
                     {parents?.length === 0 ? (
+                        <tr>
                         <td colSpan={8} className="text-center p-6">
                             No Parent found
                         </td>
+                        </tr>
                     ) : (
                         parents.map((parent) => (
                             <tr key={parent.id}
