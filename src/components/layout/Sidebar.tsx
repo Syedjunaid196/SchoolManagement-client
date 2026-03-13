@@ -45,6 +45,13 @@ export default function Sidebar() {
                     Academic Years
                 </Link>
 
+                <Link
+                    href="/admin/classes"
+                    className="hover:bg-slate-800 p-2 rounded"
+                >
+                    Classes
+                </Link>
+
             </nav>
 
         </aside>
