@@ -59,6 +59,13 @@ export default function Sidebar() {
                     Sections
                 </Link>
 
+                <Link
+                    href="/admin/subjects"
+                    className="hover:bg-slate-800 p-2 rounded"
+                >
+                    Subjects
+                </Link>
+
             </nav>
 
         </aside>
