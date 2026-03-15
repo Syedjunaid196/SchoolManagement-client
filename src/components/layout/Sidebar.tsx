@@ -66,6 +66,13 @@ export default function Sidebar() {
                     Subjects
                 </Link>
 
+                 <Link
+                    href="/admin/teacher-assignments"
+                    className="hover:bg-slate-800 p-2 rounded"
+                >
+                    Teacher Assignments
+                </Link>
+
             </nav>
 
         </aside>
