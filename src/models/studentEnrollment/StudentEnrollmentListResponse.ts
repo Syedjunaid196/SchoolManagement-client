@@ -1,6 +1,6 @@
 export interface StudentEnrollmentListResponse {
     id: string
-    StudentName: string
+    studentName: string
     academicYearName: string
     className: string
     sectionName: string
