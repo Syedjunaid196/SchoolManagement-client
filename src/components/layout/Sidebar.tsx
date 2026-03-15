@@ -52,6 +52,13 @@ export default function Sidebar() {
                     Classes
                 </Link>
 
+                <Link
+                    href="/admin/sections"
+                    className="hover:bg-slate-800 p-2 rounded"
+                >
+                    Sections
+                </Link>
+
             </nav>
 
         </aside>
