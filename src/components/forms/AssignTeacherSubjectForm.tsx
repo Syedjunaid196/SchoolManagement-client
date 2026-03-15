@@ -6,7 +6,7 @@ import { TeacherListResponse } from '@/models/teachers/teacherListResponse'
 import { AddTeacherAssignmentSchema } from '@/schemas/AddTeacherAssignmentSchema';
 import { GetSections } from '@/service/sectionService';
 import { GetSubjects } from '@/service/subjectService';
-import { AssignTeacherService } from '@/service/teacherAssignmentService';
+import { AssignTeacherSubject } from '@/service/teacherAssignmentService';
 import { GetTeacherList } from '@/service/teacherService';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -14,7 +14,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-const AddTeacherAssignmentForm = () => {
+const AssignTeacherSubjectForm = () => {
     const router = useRouter();
     const [teachers, setTeachers] = useState<TeacherListResponse[]>([]);
     const [subjects, setSubjects] = useState<SubjectListResponse[]>([]);
@@ -47,7 +47,7 @@ const AddTeacherAssignmentForm = () => {
     });
 
     const onSubmit = async (model: TeacherAssignmentRequest) => {
-        const response = await AssignTeacherService(model);
+        const response = await AssignTeacherSubject(model);
         if (response.isSuccess) {
             toast.success(response.message);
 
@@ -103,4 +103,4 @@ const AddTeacherAssignmentForm = () => {
     )
 }
 
-export default AddTeacherAssignmentForm
+export default AssignTeacherSubjectForm
