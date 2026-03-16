@@ -4,24 +4,13 @@ import { GetParentList } from '@/service/parentService';
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner';
 
-const ParentTable = () => {
-    const [parents, setParents] = useState<ParentListResponse[]>([]);
+interface Props {
+    parents : ParentListResponse[];
+}
 
-    const result = async () => {
-        const response = await GetParentList();
-        if (response.isSuccess) {
-            toast.success(response.message);
-            setParents(response.value);
-        }
-        else {
-            toast.error(response.problemDetails.title);
-        }
+export default function ParentTable({parents}: Props) {
 
 
-    }
-    useEffect(() => {
-        result()
-    }, []);
     return (
         <div className='bg-white shadow rounded-lg overflow-hidden'>
             <table className='min-w-full border-collapse'>
@@ -39,9 +28,9 @@ const ParentTable = () => {
                 <tbody className='text-sm text-gray-700'>
                     {parents?.length === 0 ? (
                         <tr>
-                        <td colSpan={8} className="text-center p-6">
-                            No Parent found
-                        </td>
+                            <td colSpan={8} className="text-center p-6">
+                                No Parent found
+                            </td>
                         </tr>
                     ) : (
                         parents.map((parent) => (
@@ -74,4 +63,3 @@ const ParentTable = () => {
     )
 }
 
-export default ParentTable

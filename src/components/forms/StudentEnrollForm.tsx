@@ -48,7 +48,9 @@ const StudentEnrollForm = () => {
             toast.success(result.message);
             router.push("/admin/student-enrollments");
         }
-        toast.error(result.problemDetails.title)
+        else {
+            toast.error(result.problemDetails.title)
+        }
     };
 
 
@@ -89,7 +91,7 @@ const StudentEnrollForm = () => {
 
                     {sections.map((s) => (
                         <option key={s.id} value={s.id}>
-                          {s.schoolClassName} -{s.name.toUpperCase()}
+                            {s.schoolClassName} -{s.name.toUpperCase()}
                         </option>
                     ))}
                 </select>

@@ -1,31 +1,10 @@
 "use client"
 import { TeacherListResponse } from '@/models/teachers/teacherListResponse';
-import { GetTeacherList } from '@/service/teacherService';
-import React, { useEffect, useState } from 'react'
-import { toast } from 'sonner';
 
-
-const TeacherTable = () => {
-
-    const [teachers, SetTeachers] = useState<TeacherListResponse[]>();
-
-
-    const result = async () => {
-        const response = await GetTeacherList();
-        if (response.isSuccess) {
-            SetTeachers(response.value);
-            toast.success(response.message);
-        }
-        else{
-            toast.error(response.problemDetails.title);
-        }
-    }
-    useEffect(() => {
-        result();
-    }, []);
-
-
-
+interface Props {
+    teachers: TeacherListResponse[]
+}
+export default function TeacherTable({ teachers }: Props) {
     return (
         <div className='bg-white shadow rounded-lg overflow-hidden'>
             <table className='min-w-full border-collapse'>
@@ -74,6 +53,5 @@ const TeacherTable = () => {
             </table>
         </div>
     )
-}
 
-export default TeacherTable
+}
