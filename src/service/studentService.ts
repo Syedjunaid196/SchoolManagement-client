@@ -10,6 +10,11 @@ export const AddStudentService = async (model: StudentRequest): Promise<Result<S
 }
 
 export const GetStudents = async (): Promise<Result<StudentListResponse[]>> =>{
-    const response = await api.get<Result<StudentListResponse[]>>("students")
+    const response = await api.get<Result<StudentListResponse[]>>("students");
     return response.data;
+}
+
+export const DeleteStudent = async (id: string):Promise<Result<StudentResponse>>=>{
+     const response = await api.delete(`students/${id}`);
+     return response.data;
 }

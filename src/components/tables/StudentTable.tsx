@@ -1,9 +1,19 @@
-"use client";
-
+'use client'
 import { StudentListResponse } from "@/models/students/studentListResponse";
+import { DeleteStudent } from "@/service/studentService";
+import { toast } from "sonner";
+import { id } from "zod/locales";
 
 interface StudentTableProps {
     students: StudentListResponse[];
+}
+
+const deletestud = async(id: string)=>{
+ var response = await DeleteStudent(id);
+ if(response.isSuccess){
+    toast.success(response.message)
+ }
+ toast.success(response.message)
 }
 
 export default function StudentTable({ students }: StudentTableProps) {
@@ -55,7 +65,9 @@ export default function StudentTable({ students }: StudentTableProps) {
                                         Edit
                                     </button>
 
-                                    <button className="text-red-600 hover:underline">
+                                    <button className="text-red-600 hover:underline"
+                                    onClick={()=>deletestud(student.id)}
+                                    >
                                         Delete
                                     </button>
                                 </td>
